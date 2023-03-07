@@ -1,0 +1,9 @@
+security:
+    enable_authenticator_manager: false
+    providers:
+        users_in_memory: { memory: null }
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+    access_control:

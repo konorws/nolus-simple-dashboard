@@ -1,0 +1,7 @@
+home:
+    path: /
+    controller: App\Action\DashboardAction
+
+api.blocks:
+    path: /api/block/last
+    controller: App\Action\API\Block\GetAction

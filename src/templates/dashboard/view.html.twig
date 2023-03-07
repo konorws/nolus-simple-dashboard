@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row row-data">
+            <div class="card text-bg-light">
+                <div class="card-header">
+                    API
+                    <span class="api_urls">
+                        {% for url, api_name in APIS %}
+                            <a href="/?api={{ url }}"
+                               class="btn btn-sm btn-info {% if (url == API_URL) %} btn-dark {% endif %}"
+                               {% if (url == API_URL) %} disabled="disabled" {% endif %}
+                            >{{ api_name }}</a>
+                        {% endfor %}
+                    </span>
+                </div>
+                <div class="card-body">
+                    Used API:
+                    <span class="badge text-bg-info api_url">{{ API_NAME }}</span>
+
+                    <span class="badge text-bg-dark api_url">{{ API_URL }}</span>
+
+                    {% if(sync) %}
+                        <span class="badge text-bg-info api_url">Syncs process</span>
+                    {% else %}
+                        <span class="badge text-bg-success api_url">Synchronized</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row row-data">
+            <div class="col-4 card text-bg-light">
+                <div class="card-header">Block Info</div>
+                <div class="card-body">
+                    <div class="row-value">
+                        <span class="name">Block Height</span>
+                        <span data-api="{{ API_URL }}" data-value="{{ height }}" id="js-data" class="value">{{ height }}</span> <span class="height-up badge bg-success">+ 5</span>
+                    </div>
+                    <div class="row-value">
+                        <span class="name">Block Time</span>
+                        <span class="value" id="js-time-view">{{ block_time }} s</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-center-card card text-bg-light">
+                <div class="card-header">Node Info</div>
+                <div class="card-body">
+                    <div class="row-value">
+                        <span class="name">Chain ID</span>
+                        <span class="value">{{ chain_id }}</span>
+                    </div>
+                    <div class="row-value">
+                        <span class="name">Binary</span>
+                        <span class="value">{{ app_name }}</span>
+                    </div>
+                    <div class="row-value">
+                        <span class="name">Version tag</span>
+                        <span class="value">{{ version }}</span>
+                    </div>
+                    <div class="row-value">
+                        <span class="name">SDK Version</span>
+                        <span class="value">{{ sdk_version }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 card text-bg-light">
+                <div class="card-header">Validators</div>
+                <div class="card-body">
+                    <div class="row-value">
+                        <span class="name">Validators</span>
+                        <span class="value">{{ totalValidators }}</span>
+                    </div>
+                    <div class="row-value">
+                        <span class="name">Active</span>
+                        <span class="value">{{ activeValidators }} / {{ maxValidators }}</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ activeValidators / maxValidators * 100  }}%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="40"></div>
+                        </div>
+                    </div>
+                    <div class="row-value">
+                        <span class="name">InActive</span>
+                        <span class="value">{{ inactiveValidators }}</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ activeValidators / totalValidators * 100 }}%" ></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ inactiveValidators / totalValidators * 100 }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-data">
+            <div class="col-4 card text-bg-light">
+                <div class="card-header">Total Supply</div>
+                <div class="card-body">
+                    <div class="col-value">
+                        <span class="value">{{ tokenSupply }} NLS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-center-card  card text-bg-light">
+                <div class="card-header">Bounded</div>
+                <div class="card-body">
+                    <div class="col-value">
+                        <span class="value">{{ boundedPercent }} %</span>
+                    </div>
+                    <div class="col-value-small">
+                        <span class="value">{{ tokenBounded }} NLS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 card text-bg-light">
+                <div class="card-header">Community Pool</div>
+                <div class="card-body">
+                    <div class="col-value">
+                        <span class="value">{{ tokenCommunity }} NLS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

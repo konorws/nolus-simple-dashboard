@@ -1,0 +1,72 @@
+.header {
+    padding: 15px 0;
+}
+
+.header .logo {
+    text-align: center;
+}
+
+.header h1,
+.header h6 {
+    display: inline-block;
+}
+
+span.api_url {
+    font-size: 18px;
+    margin-left: 14px;
+}
+
+.api_urls {
+    margin-left: 14px;
+}
+
+.row-data {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.row-data .card {
+    padding: 0;
+}
+
+.col-center-card {
+    margin: 0 4%;
+}
+
+.row-data .card-header {
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.row-value .value {
+    float: right;
+    font-size: 18px;
+    font-weight: 600;
+    color: #f95601;
+}
+
+.row-value .name {
+    display: inline-block;
+    font-size: 18px;
+    color: #092d63;
+}
+
+.col-value {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #f95601;
+}
+
+.col-value-small {
+    text-align: center;
+    color: #092d63;
+    font-weight: 900;
+}
+
+.height-up {
+    display: none;
+    position: absolute;
+    right: 16px;
+    top: 49px;
+}

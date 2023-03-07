@@ -1,0 +1,9 @@
+twig:
+    form_themes:
+        - 'layout/form/theme.html.twig'
+    paths:
+        '%kernel.project_dir%/templates': app
+
+when@test:
+    twig:
+        strict_variables: true
